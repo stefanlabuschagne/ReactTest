@@ -1,0 +1,152 @@
+
+body,
+wrapper {
+    min-height: 100vh;
+    background-color: black;
+    background-image: url(https://cdn.betwaygroup.com/medusa-production/1001/the-hunch-mobile.webp);
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.daHeader{
+  background-color: gray;
+}
+
+#canvas {
+    min-height: 100%;
+}
+
+#mainstage {
+    overflow: auto;
+}
+
+#footer {
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    clear: both;
+    height: 190px;
+    margin-top: -151px;
+    font-size: 16;
+    text-rendering: auto;
+    position: fixed;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.tableft {
+    float: left;
+    background-color: #00001A;
+    width: 40%;
+    height: 250px;
+    color: white;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+
+
+
+}
+
+.tabrigth {
+    float: right;
+    background-color: #00001A;
+    width: 35%;
+    height: 250px;
+    color: white;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+
+}
+
+.tabcenter {
+    float: right;
+    background-color: #00001A;
+    width: 25%;
+    height: 250px;
+    color: white;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+
+}
+
+p {
+    margin-left: 40px;
+    margin-right: 80px;
+}
+
+
+
+/*Start of teh Old StyleSheet */
+
+
+
+
+.App {
+
+}
+
+.container
+{
+width: 1000px;
+height: 1000px;
+border: 10px;
+border-style: solid;
+
+display: flex;
+align-items: flex-start;
+flex: 1;
+
+}
+
+.row
+{
+height: 400px;
+width: 40px;
+border-style:dashed;
+}
+
+.div
+{
+
+  border-style: dashed;
+  border-color: black;
+  background-color: red;
+}
+
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
