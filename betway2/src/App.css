@@ -1,11 +1,17 @@
 
 body,
 wrapper {
-    min-height: 100vh;
-    background-color: black;
-    background-image: url(https://cdn.betwaygroup.com/medusa-production/1001/the-hunch-mobile.webp);
-    background-repeat: no-repeat;
-    background-position: center;
+  min-height: 100vh;
+  background-color: black;
+}
+
+wrapper2 {
+  min-height: 100vh;
+  background-color: black;
+  background-image: url(https://cdn.betwaygroup.com/medusa-production/1001/the-hunch-mobile.webp);
+  background-repeat: no-repeat;
+  background-position:top;
+  background-size: 100% 100%;
 }
 
 .daHeader{
@@ -20,20 +26,63 @@ wrapper {
     overflow: auto;
 }
 
+
 #footer {
     left: 0;
     bottom: 0;
     width: 100%;
     clear: both;
-    height: 190px;
+    height: 150px;
     margin-top: -151px;
     font-size: 16;
     text-rendering: auto;
     position: fixed;
+
     background-repeat: no-repeat;
     background-attachment: fixed;
+
+    opacity: 1;
+    background-color: rgba(0, 0, 0,0.9);
+    z-index: 1000;
 }
 
+.FooterItem1
+{
+display: flex;
+align-items: center;
+margin: auto;
+font-size: medium;
+color:aliceblue;
+
+}
+
+.FooterItem2
+{
+display: flex;
+align-items: center;
+margin: auto;
+font-size: x-large;
+font-weight: bold;
+color:aliceblue;
+}
+
+.FooterItem3
+{
+display: flex;
+align-items: center;
+margin: auto;
+font-size: large;
+font-weight: bold;
+color:aliceblue;
+}
+
+.FooterItem3Button
+ {
+  width: 300px;
+ }
+
+
+  /*
 .tableft {
     float: left;
     background-color: #00001A;
@@ -68,6 +117,8 @@ wrapper {
     background-attachment: fixed;
 
 }
+
+*/
 
 p {
     margin-left: 40px;
