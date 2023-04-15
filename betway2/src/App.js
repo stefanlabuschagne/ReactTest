@@ -1,14 +1,16 @@
 import Button from 'react-bootstrap/Button';
-import Modal from 'react-bootstrap/Modal';
-import React, { useState } from 'react';
+import React from 'react';
 
 import './App.css';
 
 import MyVerticallyCenteredModal from './components/Modal/Modal';
+import Example from './components/LoginUser/LoginUser';
 
 function App() {
 
   const [modalShow, setModalShow] = React.useState(false);
+
+  const [show, setShow] = React.useState(false);
 
   return (
 
@@ -20,21 +22,14 @@ function App() {
   </div>
 
   <div class="d-flex justify-content-end">
+
       <div class="p-2">
-      <Button variant="success" onClick={() => setModalShow(true)}>
-        Login
-      </Button>
+        <Example />
       </div>
 
       <div class="p-2"><button type="button" class="btn btn-light">Sign up</button></div>
-  </div>
 
-  <>
-      <MyVerticallyCenteredModal
-        show={modalShow}
-        onHide={() => setModalShow(false)}
-      />
-    </>
+  </div>
 
 
   <ul class="nav nav-tabs justify-content-center">
@@ -57,7 +52,8 @@ function App() {
 
   <wrapper2>
 
-    <main class="container-fluid py-3 flex-fill">  const [modalShow, setModalShow] = React.useState(false);
+    <main class="container-fluid py-3 flex-fill">  
+    
     </main>
 
     <footer id="footer" class="d-flex flex-column">
