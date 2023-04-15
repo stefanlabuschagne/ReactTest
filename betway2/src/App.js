@@ -1,7 +1,15 @@
-import logo from './logo.svg';
+import Button from 'react-bootstrap/Button';
+import Modal from 'react-bootstrap/Modal';
+import React, { useState } from 'react';
+
 import './App.css';
 
+import MyVerticallyCenteredModal from './components/Modal/Modal';
+
 function App() {
+
+  const [modalShow, setModalShow] = React.useState(false);
+
   return (
 
 /* d-flex class is used to create a flexible container that can dynamically adjust the layout of its child elements based on the available space */
@@ -12,12 +20,24 @@ function App() {
   </div>
 
   <div class="d-flex justify-content-end">
-      <div class="p-2"><button type="button" class="btn btn-success">Login</button></div>
+      <div class="p-2">
+      <Button variant="success" onClick={() => setModalShow(true)}>
+        Login
+      </Button>
+      </div>
+
       <div class="p-2"><button type="button" class="btn btn-light">Sign up</button></div>
   </div>
 
+  <>
+      <MyVerticallyCenteredModal
+        show={modalShow}
+        onHide={() => setModalShow(false)}
+      />
+    </>
 
-  <ul class="nav nav-tabs nav-fill">
+
+  <ul class="nav nav-tabs justify-content-center">
     <li class="nav-item">
       <a class="nav-link" href="#">sports</a>
     </li>
@@ -37,10 +57,8 @@ function App() {
 
   <wrapper2>
 
-    <main class="container-fluid py-3 flex-fill">
-
+    <main class="container-fluid py-3 flex-fill">  const [modalShow, setModalShow] = React.useState(false);
     </main>
-
 
     <footer id="footer" class="d-flex flex-column">
       <div class="FooterItem1">SPORTS NEW CUSTOMER OFFER</div>
@@ -49,7 +67,6 @@ function App() {
     </footer>
 
   </wrapper2>
-
 
 </wrapper>
 

@@ -11,7 +11,7 @@ wrapper2 {
   background-image: url(https://cdn.betwaygroup.com/medusa-production/1001/the-hunch-mobile.webp);
   background-repeat: no-repeat;
   background-position:top;
-  background-size: 100% 100%;
+  background-size: contain;
 }
 
 .daHeader{
@@ -42,7 +42,7 @@ wrapper2 {
     background-attachment: fixed;
 
     opacity: 1;
-    background-color: rgba(0, 0, 0,0.9);
+    background-color: rgba(0, 0, 0,0.7);
     z-index: 1000;
 }
 
@@ -82,6 +82,13 @@ color:aliceblue;
  }
 
 
+ .nav-tabs .nav-item .nav-link {
+  background-color:rgb(18, 22, 22);
+  color: #FFF;
+}
+
+
+
   /*
 .tableft {
     float: left;
@@ -119,6 +126,23 @@ color:aliceblue;
 }
 
 */
+
+
+.nav-tabs > .active > a,.nav-tabs > .active > a:hover,
+.nav-tabs > li > a:hover {
+ color: #000 !important;
+ background-color: transparent !important;
+ text-decoration: none;
+  font-weight: bold;
+  border-radius:0px;
+  border-bottom-width: 4px;
+  border-bottom-style: solid;
+  border-bottom-color: #FF6600;
+      }
+ .nav-tabs > li > a{
+ border-radius:0px;
+  }
+
 
 p {
     margin-left: 40px;
