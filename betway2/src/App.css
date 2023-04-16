@@ -3,13 +3,12 @@ body,
 wrapper {
   min-height: 100vh;
   background-color: black;
+  margin: 1px
 }
 
-.btn-signup {
-  color: green;
-  background-color: white;
-  border-color: #f8f9fa;
-  /*border-radius: 0%;*/
+.topcontainer
+{
+  margin: 10px;
 }
 
 wrapper2 {
