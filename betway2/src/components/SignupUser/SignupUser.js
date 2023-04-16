@@ -3,7 +3,7 @@ import Button from 'react-bootstrap/Button';
 
 import './SignupUser.css';
 
-export default function SignupUserButton() {
+export default function SignupUserButton(props) {
 
   const [show, setShow] = useState(false);
 
@@ -12,12 +12,9 @@ export default function SignupUserButton() {
   const handleShow = () => 
   {setShow(true)};
 
-  return (
-    <>
-
-      <input type="Button" Class="xxx" onClick={handleShow} value="Sign up"/>
-
-    </>
+  return (<div>
+            <input id="signupbutton" type="Button" Class="xxx" onClick={handleShow} value="Sign up"/>
+        </div>  
   );
 }
 

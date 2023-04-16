@@ -37,7 +37,7 @@ export default function LoginUserButton() {
   return (
     <>
 
-      <Button variant="success" onClick={handleShow}>
+      <Button id="loginbutton" variant="success" onClick={handleShow}>
         Login
       </Button>
 
@@ -46,7 +46,7 @@ export default function LoginUserButton() {
 
             <div class="col-12" >
                 <h3 class="modal-title w-100 text-center">Login</h3>
-                <h6 class="modal-title w-100 text-center">New customer?&nbsp;<a href='#'>Register here</a></h6>
+                <h6 class="modal-title w-100 text-center">New customer?&nbsp;<a id="loginanchorlink" href='#'>Register here</a></h6>
             </div>
 
         </Modal.Header>
@@ -76,12 +76,12 @@ export default function LoginUserButton() {
               <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
             </Form.Group>
                 <div class="d-flex justify-content-center">
-                    <div><Button type="submit" variant="success" onClick={validateAPI} >Login</Button></div>
+                    <div><Button id="loginsubmitbutton" type="submit" variant="success" onClick={validateAPI} >Login</Button></div>
                 </div>
 
                 <div class="d-flex justify-content-center">
                     <div>
-                        <a href="#">Forgot Username/Password</a>
+                        <a id="loginanchorforgot" href="#">Forgot Username/Password</a>
                     </div>
                 </div>          
             </Form>

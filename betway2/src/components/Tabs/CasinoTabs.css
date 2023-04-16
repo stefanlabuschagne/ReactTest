@@ -1,34 +1,18 @@
-
-.nav
-{
-    border-color: blue;
-    border-bottom: 10px;
-    border-radius: 0px;
-    margin-top: 10px;
-    border-radius: 0 0 0 0;
-}
-
-.nav-link
-{
-    color: blue;
-    border-radius: 0 0 0 0;
-
-}
-
-li.nav-item
-{
-    background-color: #fff;
-    color: blue;
-    border-radius: 0 0 0 0;
-
-}
-
-.nav .active {
-    display: block;
-    border-radius: 0 0 0 0;
+.nav-tabs .nav-link {
+    background-color: transparent !important;
+    color: #FFFFFF !important;
+    border-top: none !important;
+    border-left: none !important;
+    border-right: none !important;
   }
 
-
+  .nav-tabs .nav-link {
+    border-bottom: solid 5px rgb(19, 194, 86) !important;
+  }
+  
+.nav-tabs .nav-link.active {
+    border-bottom: solid 5px rgb(31, 19, 194) !important;
+  }
 
 .customTabFormatting
 {
@@ -37,35 +21,33 @@ li.nav-item
     background-color: rgba(0, 0, 0,0.8);
     color: white;     /*text Color*/  
                                        
-    border-radius: 0px;
-
     border:  0 0 0;
     border-top: 0;
     border-bottom: 0;
     border-left: 0;
     border-right: 0;
     
-    border-top: 5px;
-    border-bottom: 5px;
+    border-bottom: 50px;
     border-bottom-style: solid;
     border-color: green;
 }
 
-#mybuttton
+.customTabFormatting2
 {
     width: 100%;
-    border-radius: 0x;
-
-
+    opacity: 1;
+    background-color: rgba(0, 0, 0,0.8);
+    color: white;     /*text Color*/  
+                                       
     border:  0 0 0;
     border-top: 0;
     border-bottom: 0;
     border-left: 0;
     border-right: 0;
-   
+    
     border-bottom: 5px;
     border-bottom-style: solid;
     border-color: green;
-
 }
+
 
