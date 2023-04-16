@@ -62,9 +62,18 @@ function CasinoTabs() {
           console.log(element);
 
           for (const c of element) {
-            console.log(c.style.borderBottomColor);
+            console.log(c.id);
+            console.log(document.getElementById(c.id).style);
+            console.log(document.getElementById(c.id).style.borderBottomColor);
+            document.getElementById(c.id).style.backgroundColor = "purple";
 
-            c.style.borderBottomColor = baseColor;
+
+            document.getElementById(c.id).style.borderBottom = "50px"; 
+            document.getElementById(c.id).style.borderBottomStyle = "solid"; 
+            document.getElementById(c.id).style.borderBottomColor = "purple";
+            document.getElementById(c.id).style.borderColor = "purple";
+ 
+            // c.style.borderBottomColor = baseColor;
 
           }
 

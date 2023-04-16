@@ -1,24 +1,5 @@
-/*
-.nav-tabs .nav-link {
-    background-color: transparent !important;
-    color: #FFFFFF !important;
-    border-top: none !important;
-    border-left: none !important;
-    border-right: none !important;
-  }
-
-  .nav-tabs .nav-link {
-    border-bottom: solid 5px rgb(19, 194, 86) !important;
-  }
-  
-.nav-tabs .nav-link.active {
-    border-bottom: solid 5px rgb(31, 19, 194) !important;
-  }
-*/
-
 .customTabsFormatting
 {
- 
     background-color: rgba(0, 0, 0,0.8);  /* Black Background */
     color: white;                         /*text Color*/  
 
@@ -34,11 +15,10 @@
 {
     width : 100%;
     opacity: 1;
+    
     background-color: transparent !important; /* This lets the black background shine through */
     color: #FFFFFF !important; 
-
- 
-                                       
+                      
     border-top: none !important;
     border-left: none !important;
     border-right: none !important;
@@ -72,6 +52,5 @@
 {
     border-color: purple !important;
 }
-
 
 
