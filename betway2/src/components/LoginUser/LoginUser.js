@@ -6,9 +6,11 @@ import Modal from 'react-bootstrap/Modal';
 import './LoginUser.css';
 
 // IMPORTS THE SERVIVE THAT GETS THE URL AND AUTHENTICATES THE USER
+// import { fetchData } from './Service/apiService';
 
 
 export default function Example() {
+
   const [show, setShow] = useState(false);
 
   const handleClose = () => 
@@ -16,16 +18,36 @@ export default function Example() {
   const handleShow = () => 
   {setShow(true)};
 
+  function validateAPI()
+
+  {}
+
+     
+    
+    // Call The API Service to Validate the user and get his name Back
+    /*
+            useEffect(() => {
+                fetchData()
+                  .then(data => setData(data))
+                  .catch(error => console.error(error));
+              }, []);
+    */
+   
+
   return (
     <>
+
       <Button variant="success" onClick={handleShow}>
         Login
       </Button>
 
-      <Modal show={show} onHide={handleClose}>
+      <Modal show={show} onHide={handleClose} centered >
         <Modal.Header closeButton>
-      
-          <h3 class="modal-title w-100 text-center">Login</h3>
+
+            <div class="col-12" >
+                <h3 class="modal-title w-100 text-center">Login</h3>
+                <h6 class="modal-title w-100 text-center">New customer?&nbsp;<a href='#'>Register here</a></h6>
+            </div>
 
         </Modal.Header>
         
@@ -39,7 +61,6 @@ export default function Example() {
                 type="text"
                 placeholder="Username"
                 autoFocus
-                minLength={1}
               />
               <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
             </Form.Group>
@@ -50,18 +71,23 @@ export default function Example() {
                 required
                 type="password"
                 placeholder=""
-                minLength={10}
+                minLength={8}
               />
               <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
             </Form.Group>
+                <div class="d-flex justify-content-center">
+                    <div><Button type="submit" variant="success" onClick={validateAPI} >Login</Button></div>
+                </div>
 
-            <Button type="submit" variant="success" >Login</Button><br/>
-            <a href="#">Forgot Username/Password</a>
-
-          </Form>
+                <div class="d-flex justify-content-center">
+                    <div>
+                        <a href="#">Forgot Username/Password</a>
+                    </div>
+                </div>          
+            </Form>
         </Modal.Body>
         <Modal.Footer>
-   
+
         </Modal.Footer>
       </Modal>
     </>
