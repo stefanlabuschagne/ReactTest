@@ -13,23 +13,27 @@ function App() {
 
 <div class="topcontainer">
 
-    <div class="d-flex justify-content-start">
-      <div class="p-2"><img src="https://cdn.betway.co.za/images/Shared/sprite/site/Betway_White.png" height={38} class="rounded" alt="Betway Image"/></div>
-    </div>
+  <div class="d-flex">
 
-    <div class="d-flex justify-content-end">
+      <span class="justify-content-start spanspacing">  
+        <div class="p-2"><img src="https://cdn.betway.co.za/images/Shared/sprite/site/Betway_White.png" height={38} class="rounded" alt="Betway"/></div>
+      </span>
 
-        <div class="p-2">
-          <LoginUserButton />
-        </div>
+      <span class="d-flex justify-content-end spanspacing">
 
-        <div class="p-2">
-          <SignupUserButton />
-        </div>
+          <div class="p-2">
+            <LoginUserButton />
+          </div>
 
-    </div>
+          <div class="p-2">
+            <SignupUserButton />
+          </div>
+
+      </span>
 
   </div>
+
+</div>
 
   <wrapper2>
 

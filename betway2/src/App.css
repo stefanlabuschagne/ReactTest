@@ -1,8 +1,12 @@
-
 body{  
   margin: 5px;
   overflow: hidden;
   background-color: black;
+}
+
+.spanspacing
+{
+  width: 50%;
 }
 
 wrapper{
