@@ -20,7 +20,6 @@ function CasinoTabs() {
       fill
 
       
-      
     >
       <Tab eventKey="sports" title="sports"  tabClassName="customTabFormatting">
        

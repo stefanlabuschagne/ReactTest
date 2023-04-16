@@ -39,9 +39,7 @@ function App() {
 
     <CasinoTabs />
 
-    <main class="container-fluid py-3 flex-fill">  
-    
-    </main>
+
 
     <footer id="footer" class="d-flex flex-column">
       <div class="FooterItem1">SPORTS NEW CUSTOMER OFFER</div>

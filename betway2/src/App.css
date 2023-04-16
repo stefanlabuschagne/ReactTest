@@ -28,10 +28,6 @@ wrapper2 {
   background-size:cover;
 }
 
-.daHeader{
-  background-color: gray;
-}
-
 #canvas {
     min-height: 100%;
 }
