@@ -6,12 +6,6 @@ import CasinoTabs from './components/Tabs/CasinoTabs';
 
 function App() {
 
-  /*
-  const [modalShow, setModalShow] = React.useState(false);
-
-  const [show, setShow] = React.useState(false);
-*/ 
-
   return (
 
 /* d-flex class is used to create a flexible container that can dynamically adjust the layout of its child elements based on the available space */
@@ -20,7 +14,7 @@ function App() {
 <div class="topcontainer">
 
     <div class="d-flex justify-content-start">
-      <div class="p-2"><img src="https://betway.com/doc-centre/assets/betway-logo-white-sml.png" class="rounded" alt="Betway Image"/></div>
+      <div class="p-2"><img src="https://cdn.betway.co.za/images/Shared/sprite/site/Betway_White.png" height={38} class="rounded" alt="Betway Image"/></div>
     </div>
 
     <div class="d-flex justify-content-end">
@@ -37,9 +31,9 @@ function App() {
 
   </div>
 
-  <CasinoTabs />
-
   <wrapper2>
+
+    <CasinoTabs />
 
     <main class="container-fluid py-3 flex-fill">  
     

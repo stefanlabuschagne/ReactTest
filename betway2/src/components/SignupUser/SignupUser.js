@@ -15,9 +15,7 @@ export default function SignupUserButton() {
   return (
     <>
 
-      <Button Class="xxx" onClick={handleShow}>
-        Sign up
-      </Button>
+      <input type="Button" Class="xxx" onClick={handleShow} value="Sign up"/>
 
     </>
   );

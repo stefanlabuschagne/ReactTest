@@ -11,4 +11,5 @@ a {
   .btn{    
     margin-bottom : 10px;
     font-weight: bold;  
+    border-radius: 0 0 0 0;
     }

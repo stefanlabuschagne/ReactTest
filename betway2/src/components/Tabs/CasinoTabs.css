@@ -1,10 +1,71 @@
-.tab-content 
-{
-height: 0px;
-width: 0px;
-}
 
 .nav
 {
     border-color: blue;
+    border-bottom: 10px;
+    border-radius: 0px;
+    margin-top: 10px;
+    border-radius: 0 0 0 0;
 }
+
+.nav-link
+{
+    color: blue;
+    border-radius: 0 0 0 0;
+
+}
+
+li.nav-item
+{
+    background-color: #fff;
+    color: blue;
+    border-radius: 0 0 0 0;
+
+}
+
+.nav .active {
+    display: block;
+    border-radius: 0 0 0 0;
+  }
+
+
+
+.customTabFormatting
+{
+    width: 100%;
+    opacity: 1;
+    background-color: rgba(0, 0, 0,0.8);
+    color: white;     /*text Color*/  
+                                       
+    border-radius: 0px;
+
+    border:  0 0 0;
+    border-top: 0;
+    border-bottom: 0;
+    border-left: 0;
+    border-right: 0;
+    
+    border-top: 5px;
+    border-bottom: 5px;
+    border-bottom-style: solid;
+    border-color: green;
+}
+
+#mybuttton
+{
+    width: 100%;
+    border-radius: 0x;
+
+
+    border:  0 0 0;
+    border-top: 0;
+    border-bottom: 0;
+    border-left: 0;
+    border-right: 0;
+   
+    border-bottom: 5px;
+    border-bottom-style: solid;
+    border-color: green;
+
+}
+

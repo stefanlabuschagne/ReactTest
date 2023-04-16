@@ -1,3 +1,4 @@
+import React, { useState } from 'react';
 import Tab from 'react-bootstrap/Tab';
 import Tabs from 'react-bootstrap/Tabs';
 
@@ -9,30 +10,45 @@ function CasinoTabs() {
   {
   }
 
+  const [key, setKey] = useState('home');
+
 
   return (
+
     <Tabs
-      defaultActiveKey="sports"
-      id="casinoTabs"
-      className="mb-3"
+
       fill
+
+      
+      
     >
-      <Tab eventKey="sports" title="sports">
+      <Tab eventKey="sports" title="sports"  tabClassName="customTabFormatting">
        
       </Tab>
-      <Tab eventKey="l-r" title="live & real">
+      <Tab eventKey="l-r" title="live & real" tabClassName="customTabFormatting">
         
       </Tab>
-      <Tab eventKey="casino" title="casino">
+      <Tab eventKey="casino" title="casino" tabClassName="customTabFormatting">
         
       </Tab>
-      <Tab eventKey="esports" title="esports">
+      <Tab eventKey="esports" title="esports" tabClassName="customTabFormatting">
         
       </Tab>
-      <Tab eventKey="vegas" title="vegas">
+      <Tab eventKey="vegas" title="vegas" tabClassName="customTabFormatting">
         
       </Tab>
     </Tabs>
+
+    
+/*
+    <div class=""> 
+
+    <button id="mybuttton" >click me</button>
+
+    </div>
+*/
+
+
   );
 }
 

@@ -1,9 +1,13 @@
 
-body,
-wrapper {
+body{  
+  margin: 5px;
+  overflow: hidden;
+  background-color: black;
+}
+
+wrapper{
   min-height: 100vh;
   background-color: black;
-  margin: 1px
 }
 
 .topcontainer
