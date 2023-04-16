@@ -5,13 +5,20 @@ wrapper {
   background-color: black;
 }
 
+.btn-signup {
+  color: green;
+  background-color: white;
+  border-color: #f8f9fa;
+  /*border-radius: 0%;*/
+}
+
 wrapper2 {
   min-height: 100vh;
   background-color: black;
   background-image: url(https://cdn.betwaygroup.com/medusa-production/1001/the-hunch-mobile.webp);
   background-repeat: no-repeat;
   background-position:top;
-  background-size: contain;
+  background-size:cover;
 }
 
 .daHeader{
@@ -27,7 +34,8 @@ wrapper2 {
 }
 
 
-#footer {
+#footer 
+{
     left: 0;
     bottom: 0;
     width: 100%;
@@ -48,32 +56,32 @@ wrapper2 {
 
 .FooterItem1
 {
-display: flex;
-align-items: center;
-margin: auto;
-font-size: medium;
-color:aliceblue;
+  display: flex;
+  align-items: center;
+  margin: auto;
+  font-size: medium;
+  color:aliceblue;
 
 }
 
 .FooterItem2
 {
-display: flex;
-align-items: center;
-margin: auto;
-font-size: x-large;
-font-weight: bold;
-color:aliceblue;
+  display: flex;
+  align-items: center;
+  margin: auto;
+  font-size: x-large;
+  font-weight: bold;
+  color:aliceblue;
 }
 
 .FooterItem3
 {
-display: flex;
-align-items: center;
-margin: auto;
-font-size: large;
-font-weight: bold;
-color:aliceblue;
+  display: flex;
+  align-items: center;
+  margin: auto;
+  font-size: large;
+  font-weight: bold;
+  color:aliceblue;
 }
 
 .FooterItem3Button
@@ -81,70 +89,35 @@ color:aliceblue;
   width: 300px;
  }
 
-
- .nav-tabs .nav-item .nav-link {
+.nav-tabs .nav-item .nav-link 
+{
+  /*
   background-color:rgb(18, 22, 22);
   color: #FFF;
+  */
 }
-
-
-
-  /*
-.tableft {
-    float: left;
-    background-color: #00001A;
-    width: 40%;
-    height: 250px;
-    color: white;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-
-
-
-}
-
-.tabrigth {
-    float: right;
-    background-color: #00001A;
-    width: 35%;
-    height: 250px;
-    color: white;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-
-}
-
-.tabcenter {
-    float: right;
-    background-color: #00001A;
-    width: 25%;
-    height: 250px;
-    color: white;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-
-}
-
-*/
 
 
 .nav-tabs > .active > a,.nav-tabs > .active > a:hover,
-.nav-tabs > li > a:hover {
- color: #000 !important;
- background-color: transparent !important;
+.nav-tabs > li > a:hover 
+{
+  /*
  text-decoration: none;
   font-weight: bold;
   border-radius:0px;
   border-bottom-width: 4px;
   border-bottom-style: solid;
-  border-bottom-color: #FF6600;
-      }
+  border-bottom-color: green;
+  */
+}
+
  .nav-tabs > li > a{
  border-radius:0px;
   }
 
 
-p {
+p 
+{
     margin-left: 40px;
     margin-right: 80px;
 }

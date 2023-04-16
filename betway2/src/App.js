@@ -1,10 +1,7 @@
-import Button from 'react-bootstrap/Button';
 import React from 'react';
-
 import './App.css';
-
-import MyVerticallyCenteredModal from './components/Modal/Modal';
-import Example from './components/LoginUser/LoginUser';
+import LoginUserButton from './components/LoginUser/LoginUser';
+import CasinoTabs from './components/Tabs/CasinoTabs';
 
 function App() {
 
@@ -24,31 +21,14 @@ function App() {
   <div class="d-flex justify-content-end">
 
       <div class="p-2">
-        <Example />
+        <LoginUserButton />
       </div>
 
-      <div class="p-2"><button type="button" class="btn btn-light">Sign up</button></div>
+      <div class="p-2"><button type="button" class="btn btn-signup">Sign up</button></div>
 
   </div>
 
-
-  <ul class="nav nav-tabs justify-content-center">
-    <li class="nav-item">
-      <a class="nav-link" href="#">sports</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="#">live & real</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="#">casino</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="#">esports</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="#">vegas</a>
-    </li>
-  </ul>
+  <CasinoTabs />
 
   <wrapper2>
 
