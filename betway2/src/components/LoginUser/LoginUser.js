@@ -76,7 +76,7 @@ export default function LoginUserButton() {
               <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
             </Form.Group>
                 <div class="d-flex justify-content-center">
-                    <div><Button id="loginsubmitbutton" type="submit" variant="success" onClick={validateAPI} >Login</Button></div>
+                    <div><Button id="loginsubmitbutton" type="submit" className="loginButton" variant="success" onClick={validateAPI} >Login</Button></div>
                 </div>
 
                 <div class="d-flex justify-content-center">

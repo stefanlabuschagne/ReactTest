@@ -4,12 +4,16 @@ border: none !important;
 
 a {
     color: green;
-    text-decoration: none;
-    border-bottom:1px dotted green;
-  }
+    text-decoration: underline dotted green 2px;
+}
 
   .btn{    
     margin-bottom : 10px;
     font-weight: bold;  
     border-radius: 0 0 0 0;
+    }
+
+    .loginButton
+    {
+      Width: 200px;
     }

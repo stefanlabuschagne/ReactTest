@@ -1,3 +1,4 @@
+/*
 .nav-tabs .nav-link {
     background-color: transparent !important;
     color: #FFFFFF !important;
@@ -13,41 +14,64 @@
 .nav-tabs .nav-link.active {
     border-bottom: solid 5px rgb(31, 19, 194) !important;
   }
+*/
+
+.customTabsFormatting
+{
+ 
+    background-color: rgba(0, 0, 0,0.8);  /* Black Background */
+    color: white;                         /*text Color*/  
+
+    border-top: none !important;
+    border-left: none !important;
+    border-right: none !important;
+
+    background-size: cover !important;
+                                       
+}
 
 .customTabFormatting
 {
-    width: 100%;
+    width : 100%;
     opacity: 1;
-    background-color: rgba(0, 0, 0,0.8);
-    color: white;     /*text Color*/  
+    background-color: transparent !important; /* This lets the black background shine through */
+    color: #FFFFFF !important; 
+
+ 
                                        
-    border:  0 0 0;
-    border-top: 0;
-    border-bottom: 0;
-    border-left: 0;
-    border-right: 0;
+    border-top: none !important;
+    border-left: none !important;
+    border-right: none !important;
     
-    border-bottom: 50px;
-    border-bottom-style: solid;
-    border-color: green;
+    border-bottom: 5px !important;
+    border-bottom-style: solid !important;
 }
 
-.customTabFormatting2
+
+.customTab1
 {
-    width: 100%;
-    opacity: 1;
-    background-color: rgba(0, 0, 0,0.8);
-    color: white;     /*text Color*/  
-                                       
-    border:  0 0 0;
-    border-top: 0;
-    border-bottom: 0;
-    border-left: 0;
-    border-right: 0;
-    
-    border-bottom: 5px;
-    border-bottom-style: solid;
-    border-color: green;
+    border-color: green !important;
 }
+
+.customTab2
+{
+    border-color: red !important;
+}
+
+.customTab3
+{
+    border-color: yellow !important;
+}
+
+.customTab4
+{
+    border-color: blue !important;
+}
+
+.customTab5
+{
+    border-color: purple !important;
+}
+
 
 

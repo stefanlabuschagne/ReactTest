@@ -11,9 +11,10 @@ function CasinoTabs() {
   return (
 
     <Tabs
-
+      className='customTabsFormatting'
       fill
-
+      defaultActiveKey ="1"
+      mountOnEnter = 'true'
       activeKey={key}
       onSelect={(k) => 
         {
@@ -24,27 +25,33 @@ function CasinoTabs() {
 
         // Now change the colors for the entire website here
         var baseColor="";
+        var element;
 
         switch(k){  
   
           case "1":  
               baseColor = 'green';
+              element = document.getElementsByClassName("customTab1");
               break;  //optional  
 
           case "2":  
-              baseColor = 'red';  
+              baseColor = 'red'; 
+              element = document.getElementsByClassName("customTab2");
               break;  //optional 
             
           case "3":  
               baseColor = 'yellow';  
+              element = document.getElementsByClassName("customTab3");
               break;  //optional    
 
           case "4":  
               baseColor = 'blue';  
+              element = document.getElementsByClassName("customTab4"); 
               break;  //optional  
 
           case "5":  
               baseColor = 'purple';  
+              element = document.getElementsByClassName("customTab5");
               break;  //optional    
 
           default:  
@@ -52,23 +59,21 @@ function CasinoTabs() {
               break;  //optional  
           }  
 
+          console.log(element);
 
-          // this.Tab.style.backgroundColor = baseColor;
+          for (const c of element) {
+            console.log(c.style.borderBottomColor);
 
-          const elements = document.querySelectorAll('.nav-link.active');
+            c.style.borderBottomColor = baseColor;
 
-
-          console.log(elements);
+          }
 
           // border-bottom: solid 5px rgb(31, 19, 194)
 
           document.getElementById("joiningbutton").style.backgroundColor = baseColor;
           document.getElementById("joiningbutton").style.borderColor = baseColor;
 
-          
           document.getElementById("signupbutton").style.color = baseColor;
-
-
 
           // Colors for login CTA
           document.getElementById("loginbutton").style.backgroundColor = baseColor;
@@ -89,19 +94,19 @@ function CasinoTabs() {
          } }
       
     >
-      <Tab eventKey="1" id="sss" title="sports" tabClassName="customTabFormatting" >
+      <Tab eventKey={1} id="T1" title="sports" tabClassName="customTabFormatting customTab1" >
        
       </Tab>
-      <Tab eventKey="2" title="live & real" tabClassName="customTabFormatting">
+      <Tab eventKey={2} id="T2" title="live & real" tabClassName="customTabFormatting customTab2"    >
         
       </Tab>
-      <Tab eventKey="3" title="casino" tabClassName="customTabFormatting">
+      <Tab eventKey={3} id="T3" title="casino" tabClassName="customTabFormatting customTab3">
         
       </Tab>
-      <Tab eventKey="4" title="esports" tabClassName="customTabFormatting">
+      <Tab eventKey={4} id="T4" title="esports" tabClassName="customTabFormatting customTab4" >
         
       </Tab>
-      <Tab eventKey="5" title="vegas" tabClassName="customTabFormatting">
+      <Tab eventKey={5} id="T5" title="vegas" tabClassName="customTabFormatting customTab5">
         
       </Tab>
     </Tabs>
