@@ -11,28 +11,79 @@ import './LoginUser.css';
 
 export default function LoginUserButton() {
 
-  const [show, setShow] = useState(false);
+  const [show, setShow] = useState(false);  // Surprisingly Easy https://react.dev/reference/react/useState
+
+  const[username, setUsername] = useState("");
+  const[password, setPassword] = useState("");
+  const[realusername, setRealusername] = useState ("");
+
+  function handlePasswordChange(e)
+  {
+    setPassword(e.target.value);
+  }
+
+  function handleUsernameChange(e)
+  {
+    setUsername(e.target.value);
+  }
 
   const handleClose = () => 
-  {setShow(false)};
+    {setShow(false)};
+
   const handleShow = () => 
-  {setShow(true)};
+    {setShow(true)};
 
-  function validateAPI()
+  // Submit Event handler method
+  const validateAPI = (e) => 
+  {
 
-  {}
+    const form = e.currentTarget;
 
-     
-    
-    // Call The API Service to Validate the user and get his name Back
-    /*
-            useEffect(() => {
-                fetchData()
-                  .then(data => setData(data))
-                  .catch(error => console.error(error));
-              }, []);
-    */
-   
+    if (form.checkValidity() === false) {
+        alert('form not valid');
+        console.log('form not valid');
+        e.preventDefault();
+        e.stopPropagation();
+    }
+    else
+    {
+      // Stop everything anyways
+      e.preventDefault();
+      e.stopPropagation();
+      // console.log('form VALID');
+      // alert('form VALID');
+      // Call the API to submit values
+    }
+
+      // This needs CORS to be configured!
+      fetch('https://bbackendapi.azurewebsites.net/api/betway/login', {
+        method: 'POST',
+        body: JSON.stringify({
+           email: username,
+           password: password,
+        }),
+        headers: {
+           'Content-type': 'application/json; charset=UTF-8',
+        },
+     })
+        .then((res) => res.json())
+        .then((data) => {
+           setUsername('');
+           setPassword('');
+           console.log(data);
+           (data.status==="Success")?(setRealusername(data.message)):(setRealusername(""))
+
+           // Show a modal somehow.
+           alert(data.message);
+           
+        })
+        .catch((err) => {
+           console.log(err.message);
+           alert(err.message);
+        });
+
+
+  };
 
   return (
     <>
@@ -53,14 +104,17 @@ export default function LoginUserButton() {
         
         <Modal.Body>
 
-          <Form>
+          <Form onSubmit={validateAPI} >
+
             <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
               <Form.Label>Username</Form.Label>
               <Form.Control
                 required
-                type="text"
+                type="email"
                 placeholder="Username"
                 autoFocus
+                value={username}
+                onChange={handleUsernameChange}
               />
               <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
             </Form.Group>
@@ -72,11 +126,14 @@ export default function LoginUserButton() {
                 type="password"
                 placeholder=""
                 minLength={8}
+                value={password}
+                onChange={handlePasswordChange}
               />
               <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
+     
             </Form.Group>
                 <div class="d-flex justify-content-center">
-                    <div><Button id="loginsubmitbutton" type="submit" className="loginButton" variant="success" onClick={validateAPI} >Login</Button></div>
+                    <div><Button id="loginsubmitbutton" type="submit" className="loginButton" variant="success"  >Login</Button></div>
                 </div>
 
                 <div class="d-flex justify-content-center">

@@ -8,6 +8,13 @@ function App() {
 
   // Create a Global Color Variable
 
+  // Query the API for TEXT to be displayed on the Components
+
+
+
+
+
+
   return (
 
 <wrapper class="d-flex flex-column">
@@ -23,11 +30,11 @@ function App() {
       <span class="d-flex justify-content-end spanspacing">
 
           <div class="p-2">
-            <LoginUserButton displayColor="Brown" />
+            <LoginUserButton displayColor="Brown" displayText="" />
           </div>
 
           <div class="p-2">
-            <SignupUserButton displayColor="Brown" />
+            <SignupUserButton displayColor="Brown" displayText=""/>
           </div>
 
       </span>

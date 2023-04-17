@@ -1,4 +1,4 @@
-const API_URL = 'https://api.example.com';
+const API_URL = 'https://bbackendapi.azurewebsites.net/api/betway';
 
 export const fetchData = async () => {
   try {
