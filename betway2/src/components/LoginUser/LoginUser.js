@@ -7,35 +7,63 @@ import { flushSync } from 'react-dom';
 
 import './LoginUser.css';
 
-export default function LoginUserButton() {
+export default function LoginUserButton(displayColor) {
 
-  const [show, setShow] = useState(false);  // Surprisingly Easy https://react.dev/reference/react/useState
-  // const [showwelcome, setShowWelcome] = useState(false); 
+  const[headerText, setHeaderText] = useState([]);
+  const[formFields, setFormFields] = useState([]);
+  const[FooterText, setFooterText] = useState([]);
+
+  useEffect(() => {
+
+    // TODO
+    // Code to load the Display-Text for the CTA from the API
+    // This needs CORS to be configured!
+    // https://bbackendapi.azurewebsites.net/api/betway/settings/ctalogin
+
+    fetch('https://bbackendapi.azurewebsites.net/api/betway/settings/ctalogin', 
+    {
+        method: 'GET',
+          headers: {
+            'Content-type': 'application/json; charset=UTF-8',
+          },
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        setHeaderText(data.headerText);
+        setFormFields(data.formFields);
+        setFooterText(data.footerText);
+      })
+      .catch((err) => {
+          console.log(err.message);
+          // alert(err.message);
+      });
+
+  });
+
+  const [show, setShow] = useState(false);  // https://react.dev/reference/react/useState
 
   const[username, setUsername] = useState("");
   const[password, setPassword] = useState("");
   const[realusername, setRealusername] = useState ("");
 
   const[successfulllogin, setSuccessfulllogin] = useState(false);
-
-  // Callback (Event Fired) when successfulllogin changes
-  // useEffect ( ()=>{alert('successfulllogin updated')}  , [successfulllogin] )
+  const[feedbackMessage, setFeedbackMessage] = useState("");
 
   function handlePasswordChange(e)
-  {
-    setPassword(e.target.value);
-  }
+    {
+      setPassword(e.target.value);
+    }
 
   function handleUsernameChange(e)
-  {
-    setUsername(e.target.value);
-  }
+    {
+      setUsername(e.target.value);
+    }
 
-const handleCloseAll =() =>
-  { 
-    setShow(false);
-    setSuccessfulllogin(false);
-  }
+  const handleCloseAll =() =>
+    { 
+      setShow(false);
+      setSuccessfulllogin(false);
+    }
 
   const handleClose = () => 
     {setShow(false)};
@@ -43,55 +71,53 @@ const handleCloseAll =() =>
   const handleShow = () => 
     {setShow(true)};
 
-  // Submit Event handler method
-  const validateAPI = (e) => 
+  const handleLoginUser = (e) => 
   {
 
-    const form = e.currentTarget;
-
-    if (form.checkValidity() === false) {
-        e.preventDefault();
-        e.stopPropagation();
-    }
-    else
-    {
-        // Stop everything anyways
-        e.preventDefault();
-        e.stopPropagation();
-    }
+      e.preventDefault();
+      e.stopPropagation();
 
       // This needs CORS to be configured!
-      fetch('https://bbackendapi.azurewebsites.net/api/betway/login', {
-        method: 'POST',
-        body: JSON.stringify({
-           email: username,
-           password: password,
-        }),
-        headers: {
-           'Content-type': 'application/json; charset=UTF-8',
-        },
-     })
+      // Works with (harper.lee@gmail.com) & (Syntax-10)
+      fetch('https://bbackendapi.azurewebsites.net/api/betway/login', 
+      {
+          method: 'POST',
+          body: JSON.stringify(
+            {
+              email: username,
+              password: password,
+            }),
+            headers: {
+              'Content-type': 'application/json; charset=UTF-8',
+            },
+      })
         .then((res) => res.json())
         .then((data) => {
            setUsername('');
            setPassword('');
-           console.log(data);
+           // console.log(data);
            if(data.status==="Success") 
             {
-              // Needs some reworking...
+              // Needs SERIOUS reworking...
               flushSync(() => {
+                setFeedbackMessage("");
                 setSuccessfulllogin(true);
                 setRealusername(data.message);
                 setShow(false);
                 handleClose();
               });
             }
-
+            else
+            {
+              flushSync(() => {
+                setFeedbackMessage(data.message+ "!");
+              });
+            }
            
         })
         .catch((err) => {
            console.log(err.message);
-           alert(err.message);
+           // alert(err.message);
         });
 
   };
@@ -99,12 +125,12 @@ const handleCloseAll =() =>
   return (
     <>
 
-      <Button id="loginbutton" variant="success" onClick={handleShow}>
+      <Button id="loginbutton" variant="success" onClick={handleShow} >
         Login
       </Button>
 
       <Modal show={show} onHide={handleClose} centered >
-        <Modal.Header closeButton>
+        <Modal.Header closeButton >
 
             <div class="col-12" >
                 <h3 class="modal-title w-100 text-center">Login</h3>
@@ -115,7 +141,7 @@ const handleCloseAll =() =>
         
         <Modal.Body>
 
-          <Form onSubmit={validateAPI} >
+          <Form onSubmit={handleLoginUser} >
 
             <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
               <Form.Label>Username</Form.Label>
@@ -146,7 +172,6 @@ const handleCloseAll =() =>
                 <div class="d-flex justify-content-center">
                     <div><Button disabled={successfulllogin}  id="loginsubmitbutton" type="submit" className="loginButton" variant="success"  >Login</Button></div>
                 </div>
-
                 <div class="d-flex justify-content-center">
                     <div>
                         <a id="loginanchorforgot" href="#">Forgot Username/Password</a>
@@ -155,11 +180,13 @@ const handleCloseAll =() =>
             </Form>
         </Modal.Body>
         <Modal.Footer>
-
+          <div class="d-flex col-12 justify-content-center loginfeedback">  
+            <h6>{feedbackMessage}</h6>
+          </div>
         </Modal.Footer>
       </Modal>
-
-      <Modal show={successfulllogin} onHide={handleClose} centered >
+      
+      <Modal show={successfulllogin} onHide={handleCloseAll} centered >
         
         <Modal.Header>
           <div class="col-12" >
@@ -169,13 +196,13 @@ const handleCloseAll =() =>
         
         <Modal.Body>
 
-        <div class="d-flex col-12 justify-content-center">
+        <div class="d-flex col-12 justify-content-center" >
               <h1>{`Welcome, ${realusername}`}</h1>
         </div>
 
         </Modal.Body>
         <Modal.Footer>
-          <div class="d-flex col-12 justify-content-center">
+          <div class="d-flex col-12 justify-content-center ">
                 <Button className="closeButton" variant="success"  onClick={handleCloseAll} >Continue</Button>
           </div>        
         </Modal.Footer>

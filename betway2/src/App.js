@@ -1,19 +1,57 @@
-import React from 'react';
+import { React } from 'react';
+import { useState, useEffect } from 'react';
 import './App.css';
 import LoginUserButton from './components/LoginUser/LoginUser';
 import SignupUserButton from './components/SignupUser/SignupUser';
 import CasinoTabs from './components/Tabs/CasinoTabs';
 
+import CasinoTabs2 from './components/Tabs2/CasinoTabs';
+
 function App() {
 
-  // Create a Global Color Variable
+  useEffect(() => {
 
-  // Query the API for TEXT to be displayed on the Components
+    // TODO
+    // Code to load the Display-Text for the App from the API
+    // This needs CORS to be configured!
+    // https://bbackendapi.azurewebsites.net/api/betway/settings/ctalogin
+    // https://bbackendapi.azurewebsites.net/api/betway/settings/ctalogin
+
+    fetch('https://bbackendapi.azurewebsites.net/api/betway/settings/App', 
+    {
+        method: 'GET',
+          headers: {
+            'Content-type': 'application/json; charset=UTF-8',
+          },
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        setBannerOptions(data.bannerOptions);
+        setLoginText(data.loginText);
+        setSignUp(data.signUp);
+        setfooterLines(data.footerLines);
+      })
+      .catch((err) => {
+          console.log(err.message);
+          // alert(err.message);
+      });
+
+  });
+
+  const [bannerOptions, setBannerOptions] = useState([]);
+  const [loginText, setLoginText] = useState('');
+  const [signUp, setSignUp] = useState('');
+  const [footerLines, setfooterLines] = useState([]);
 
 
+  // STATE FOR THE CURRENT COLOR
+  // Current color is set to other components as Props
+  // Only the Tabstrip can Change the State
+  const [baseColor, setSelectedColor] = useState('green');
 
-
-
+  function setColor(color) {
+    setSelectedColor(color); 
+  }
 
   return (
 
@@ -30,11 +68,11 @@ function App() {
       <span class="d-flex justify-content-end spanspacing">
 
           <div class="p-2">
-            <LoginUserButton displayColor="Brown" displayText="" />
+            <LoginUserButton displayColor={baseColor} displayText="" />
           </div>
 
           <div class="p-2">
-            <SignupUserButton displayColor="Brown" displayText=""/>
+            <SignupUserButton displayColor={baseColor} displayText=""/>
           </div>
 
       </span>
@@ -45,7 +83,13 @@ function App() {
 
   <wrapper2>
 
-    <CasinoTabs />
+    <CasinoTabs2 baseColor={"Green"} 
+                 onTab1Click={()=> setColor("green")}
+                 onTab2Click={()=> setColor("red")}
+                 onTab3Click={()=> setColor("yellow")}
+                 onTab4Click={()=> setColor("blue")}
+                 onTab5Click={()=> setColor("purple")}
+                  />
 
     <footer id="footer" class="d-flex flex-column">
       <div class="FooterItem1">SPORTS NEW CUSTOMER OFFER</div>

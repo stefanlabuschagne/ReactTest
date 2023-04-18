@@ -1,0 +1,56 @@
+.customTabsFormatting
+{
+    background-color: rgba(0, 0, 0,0.8);  /* Black Background */
+    color: white;                         /*text Color*/  
+
+    border-top: none !important;
+    border-left: none !important;
+    border-right: none !important;
+
+    background-size: cover !important;
+                                       
+}
+
+.customTabFormatting
+{
+    width : 100%;
+    opacity: 1;
+    
+    background-color: transparent !important; /* This lets the black background shine through */
+    color: #FFFFFF !important; 
+                      
+    border-top: none !important;
+    border-left: none !important;
+    border-right: none !important;
+    
+    border-bottom: 5px !important;
+    border-bottom-style: solid !important;
+}
+
+
+.customTab1
+{
+    border-color: green !important;
+}
+
+.customTab2
+{
+    border-color: red !important;
+}
+
+.customTab3
+{
+    border-color: yellow !important;
+}
+
+.customTab4
+{
+    border-color: blue !important;
+}
+
+.customTab5
+{
+    border-color: purple !important;
+}
+
+

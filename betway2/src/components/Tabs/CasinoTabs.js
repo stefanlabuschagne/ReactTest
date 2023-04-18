@@ -7,6 +7,9 @@ import './CasinoTabs.css';
 function CasinoTabs() {
 
   const [key, setKey] = useState('home');
+  
+  // Lift to the Top
+  // const [currentColor, setCurrentColor] = useState('green');
 
   return (
 
@@ -19,10 +22,6 @@ function CasinoTabs() {
       onSelect={(k) => 
         {
         setKey(k) ;
-        console.log("Hello " +k);
-
-        console.log(setKey +k);        
-
         // Now change the colors for the entire website here
         var baseColor="";
         var element;
@@ -59,8 +58,10 @@ function CasinoTabs() {
               break;  //optional  
           }  
 
-          console.log(element);
+          // setCurrentColor(baseColor);
 
+          /*
+          console.log(element);
           for (const c of element) {
             console.log(c.id);
             console.log(document.getElementById(c.id).style);
@@ -78,6 +79,7 @@ function CasinoTabs() {
           }
 
           // border-bottom: solid 5px rgb(31, 19, 194)
+          */
 
           document.getElementById("joiningbutton").style.backgroundColor = baseColor;
           document.getElementById("joiningbutton").style.borderColor = baseColor;
@@ -92,7 +94,7 @@ function CasinoTabs() {
 
           // alert(document.getElementById("loginanchorlink"));
           
-          //document.getElementById("loginanchorlink").style.color = baseColor;
+          // document.getElementById("loginanchorlink").style.color = baseColor;
           
           //document.getElementById("loginsubmitbutton").style.backgroundColor = baseColor;
           //document.getElementById("loginsubmitbutton").style.borderColor = baseColor;
