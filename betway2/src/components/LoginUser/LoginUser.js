@@ -12,7 +12,7 @@ export default function LoginUserButton({baseColor}) {
   const[headerText, setHeaderText] = useState([]);
   const[formFields, setFormFields] = useState([]);
   const[FooterText, setFooterText] = useState([]);
- 
+
   useEffect(() => {
 
     // TODO
@@ -38,18 +38,15 @@ export default function LoginUserButton({baseColor}) {
           // alert(err.message);
       });
 
-      // Update the Base Colors Here 
-      //console.log(baseColor);
-      //alert(baseColor);
-      
-      /*
-      document.getElementById("loginanchorlink").style.color = baseColor;
-      document.getElementById("loginsubmitbutton").style.backgroundColor = baseColor;
-      document.getElementById("loginsubmitbutton").style.borderColor = baseColor;
-      document.getElementById("loginanchorforgot").style.color = baseColor;
-      */
+      // setTimeout(applyColors(baseColor), 100000);
 
   },[]);
+
+  useLayoutEffect(() => {
+
+    // setTimeout(applyColors(baseColor), 5000);
+
+});
 
   const [show, setShow] = useState(false);  // https://react.dev/reference/react/useState
 
@@ -60,6 +57,14 @@ export default function LoginUserButton({baseColor}) {
   const[successfulllogin, setSuccessfulllogin] = useState(false);
   const[feedbackMessage, setFeedbackMessage] = useState("");
 
+  function applyColors(ctaColor)
+    {
+      document.getElementById("loginanchorlink").style.color = ctaColor;
+      document.getElementById("loginsubmitbutton").style.backgroundColor = ctaColor;
+      document.getElementById("loginsubmitbutton").style.borderColor = ctaColor;
+      document.getElementById("loginanchorforgot").style.color = ctaColor;      
+    }
+
   function handlePasswordChange(e)
     {
       setPassword(e.target.value);
@@ -68,6 +73,7 @@ export default function LoginUserButton({baseColor}) {
   function handleUsernameChange(e)
     {
       setUsername(e.target.value);
+      applyColors(baseColor);
     }
 
   const handleCloseAll =() =>
@@ -80,7 +86,10 @@ export default function LoginUserButton({baseColor}) {
     {setShow(false)};
 
   const handleShow = () => 
-    {setShow(true)};
+    {
+      setShow(true)
+    
+    };
 
   const handleLoginUser = (e) => 
   {
@@ -117,6 +126,10 @@ export default function LoginUserButton({baseColor}) {
                 setShow(false);
                 handleClose();
               });
+
+              document.getElementById("closeButton2").style.backgroundColor = baseColor;
+              document.getElementById("closeButton2").style.borderColor = baseColor;
+
             }
             else
             {
@@ -214,7 +227,7 @@ export default function LoginUserButton({baseColor}) {
         </Modal.Body>
         <Modal.Footer>
           <div class="d-flex col-12 justify-content-center ">
-                <Button className="closeButton" variant="success"  onClick={handleCloseAll} >Continue</Button>
+                <Button className="closeButton" id= "closeButton2" variant="success"  onClick={handleCloseAll} >Continue</Button>
           </div>        
         </Modal.Footer>
       </Modal>

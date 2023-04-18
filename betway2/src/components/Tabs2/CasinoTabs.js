@@ -29,7 +29,7 @@ function CasinoTabs2    ({baseColor, onData }) {
                     break;  //optional 
                   
                 case "3":  
-                    baseColor = 'yellow';  
+                    baseColor = 'cyan';  
                     break;  //optional    
       
                 case "4":  
