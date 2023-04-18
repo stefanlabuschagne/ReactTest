@@ -10,6 +10,8 @@ function App() {
 
   useEffect(() => {
 
+    // alert("UseEffect");
+
     // TODO
     // Code to load the Display-Text for the App from the API
     // This needs CORS to be configured!
@@ -37,7 +39,7 @@ function App() {
 
       // Set the Text Values
 
-  });
+  },[] );
 
   const [bannerOptions, setBannerOptions] = useState([]);
   const [loginText, setLoginText] = useState('');
@@ -50,10 +52,17 @@ function App() {
   // Only the Tabstrip can Change the State
   const [baseColor, setSelectedColor] = useState('green');
 
-  function setColor(colorFromChild)
+  function setColor(selectedColor)
   {
-    setSelectedColor(colorFromChild);
-    alert(colorFromChild);
+    setSelectedColor(selectedColor);
+
+    // Main Screen UI Color Updates
+    document.getElementById("joiningbutton").style.backgroundColor = selectedColor;
+    document.getElementById("joiningbutton").style.borderColor = selectedColor;
+    document.getElementById("signupbutton").style.color = selectedColor;
+    document.getElementById("loginbutton").style.backgroundColor = selectedColor;
+    document.getElementById("loginbutton").style.borderColor = selectedColor;
+    
   }
 
   return (
@@ -71,11 +80,11 @@ function App() {
       <span class="d-flex justify-content-end spanspacing">
 
           <div class="p-2">
-            <LoginUserButton displayColor={baseColor} displayText="" />
+            <LoginUserButton baseColor={baseColor} />
           </div>
 
           <div class="p-2">
-            <SignupUserButton displayColor={baseColor} displayText=""/>
+            <SignupUserButton baseColor={baseColor} />
           </div>
 
       </span>

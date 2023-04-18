@@ -1,4 +1,4 @@
-import React, { useState, useEffect  } from 'react';
+import React, { useState, useEffect, useLayoutEffect  } from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import Modal from 'react-bootstrap/Modal';
@@ -7,12 +7,12 @@ import { flushSync } from 'react-dom';
 
 import './LoginUser.css';
 
-export default function LoginUserButton(displayColor) {
+export default function LoginUserButton({baseColor}) {
 
   const[headerText, setHeaderText] = useState([]);
   const[formFields, setFormFields] = useState([]);
   const[FooterText, setFooterText] = useState([]);
-
+ 
   useEffect(() => {
 
     // TODO
@@ -38,7 +38,18 @@ export default function LoginUserButton(displayColor) {
           // alert(err.message);
       });
 
-  });
+      // Update the Base Colors Here 
+      //console.log(baseColor);
+      //alert(baseColor);
+      
+      /*
+      document.getElementById("loginanchorlink").style.color = baseColor;
+      document.getElementById("loginsubmitbutton").style.backgroundColor = baseColor;
+      document.getElementById("loginsubmitbutton").style.borderColor = baseColor;
+      document.getElementById("loginanchorforgot").style.color = baseColor;
+      */
+
+  },[]);
 
   const [show, setShow] = useState(false);  // https://react.dev/reference/react/useState
 

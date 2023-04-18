@@ -6,11 +6,8 @@ import './CasinoTabs.css';
 
 function CasinoTabs2    ({baseColor, onData }) {
 
-  const [key, setKey] = useState('home');
+  const [key, setKey] = useState('1');
   
-  // Lift to the Top
-  // const [currentColor, setCurrentColor] = useState('green');
-
   return (
 
     <Tabs
@@ -48,27 +45,8 @@ function CasinoTabs2    ({baseColor, onData }) {
                     break;  //optional  
                 } 
 
+                // Propagate color to the caller
                 onData(baseColor);
-
-                // Below needs to be replaced by sending a color to each component
-
-                document.getElementById("joiningbutton").style.backgroundColor = baseColor;
-                document.getElementById("joiningbutton").style.borderColor = baseColor;
-      
-                document.getElementById("signupbutton").style.color = baseColor;
-      
-                // Colors for login CTA
-                document.getElementById("loginbutton").style.backgroundColor = baseColor;
-                document.getElementById("loginbutton").style.borderColor = baseColor;
-      
-                // alert(document.getElementById("loginanchorlink"));
-                
-                // document.getElementById("loginanchorlink").style.color = baseColor;
-                
-                //document.getElementById("loginsubmitbutton").style.backgroundColor = baseColor;
-                //document.getElementById("loginsubmitbutton").style.borderColor = baseColor;
-      
-                //document.getElementById("loginanchorforgot").style.color = baseColor;
 
          } }
       
@@ -89,7 +67,6 @@ function CasinoTabs2    ({baseColor, onData }) {
         
       </Tab>
     </Tabs>
-
 
   );
 }

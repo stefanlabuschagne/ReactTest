@@ -3,7 +3,7 @@ import Button from 'react-bootstrap/Button';
 
 import './SignupUser.css';
 
-export default function SignupUserButton(props) {
+export default function SignupUserButton({baseColor}) {
 
   const [show, setShow] = useState(false);
 
