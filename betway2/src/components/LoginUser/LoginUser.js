@@ -1,21 +1,25 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect  } from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import Modal from 'react-bootstrap/Modal';
 
+import { flushSync } from 'react-dom';
+
 import './LoginUser.css';
-
-// IMPORTS THE SERVIVE THAT GETS THE URL AND AUTHENTICATES THE USER
-// import { fetchData } from './Service/apiService';
-
 
 export default function LoginUserButton() {
 
   const [show, setShow] = useState(false);  // Surprisingly Easy https://react.dev/reference/react/useState
+  // const [showwelcome, setShowWelcome] = useState(false); 
 
   const[username, setUsername] = useState("");
   const[password, setPassword] = useState("");
   const[realusername, setRealusername] = useState ("");
+
+  const[successfulllogin, setSuccessfulllogin] = useState(false);
+
+  // Callback (Event Fired) when successfulllogin changes
+  // useEffect ( ()=>{alert('successfulllogin updated')}  , [successfulllogin] )
 
   function handlePasswordChange(e)
   {
@@ -25,6 +29,12 @@ export default function LoginUserButton() {
   function handleUsernameChange(e)
   {
     setUsername(e.target.value);
+  }
+
+const handleCloseAll =() =>
+  { 
+    setShow(false);
+    setSuccessfulllogin(false);
   }
 
   const handleClose = () => 
@@ -40,19 +50,14 @@ export default function LoginUserButton() {
     const form = e.currentTarget;
 
     if (form.checkValidity() === false) {
-        alert('form not valid');
-        console.log('form not valid');
         e.preventDefault();
         e.stopPropagation();
     }
     else
     {
-      // Stop everything anyways
-      e.preventDefault();
-      e.stopPropagation();
-      // console.log('form VALID');
-      // alert('form VALID');
-      // Call the API to submit values
+        // Stop everything anyways
+        e.preventDefault();
+        e.stopPropagation();
     }
 
       // This needs CORS to be configured!
@@ -71,17 +76,23 @@ export default function LoginUserButton() {
            setUsername('');
            setPassword('');
            console.log(data);
-           (data.status==="Success")?(setRealusername(data.message)):(setRealusername(""))
+           if(data.status==="Success") 
+            {
+              // Needs some reworking...
+              flushSync(() => {
+                setSuccessfulllogin(true);
+                setRealusername(data.message);
+                setShow(false);
+                handleClose();
+              });
+            }
 
-           // Show a modal somehow.
-           alert(data.message);
            
         })
         .catch((err) => {
            console.log(err.message);
            alert(err.message);
         });
-
 
   };
 
@@ -133,7 +144,7 @@ export default function LoginUserButton() {
      
             </Form.Group>
                 <div class="d-flex justify-content-center">
-                    <div><Button id="loginsubmitbutton" type="submit" className="loginButton" variant="success"  >Login</Button></div>
+                    <div><Button disabled={successfulllogin}  id="loginsubmitbutton" type="submit" className="loginButton" variant="success"  >Login</Button></div>
                 </div>
 
                 <div class="d-flex justify-content-center">
@@ -147,6 +158,29 @@ export default function LoginUserButton() {
 
         </Modal.Footer>
       </Modal>
+
+      <Modal show={successfulllogin} onHide={handleClose} centered >
+        
+        <Modal.Header>
+          <div class="col-12" >
+              <h3 class="modal-title w-100 text-center">Success</h3>
+          </div>       
+        </Modal.Header>
+        
+        <Modal.Body>
+
+        <div class="d-flex col-12 justify-content-center">
+              <h1>{`Welcome, ${realusername}`}</h1>
+        </div>
+
+        </Modal.Body>
+        <Modal.Footer>
+          <div class="d-flex col-12 justify-content-center">
+                <Button className="closeButton" variant="success"  onClick={handleCloseAll} >Continue</Button>
+          </div>        
+        </Modal.Footer>
+      </Modal>
+
     </>
   );
 }
