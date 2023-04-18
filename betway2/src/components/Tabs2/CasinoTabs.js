@@ -4,7 +4,7 @@ import Tabs from 'react-bootstrap/Tabs';
 
 import './CasinoTabs.css';
 
-function CasinoTabs2    ({baseColor, onTab1Click, onTab2Click, onTab3Click, onTab4Click, onTab5Click }) {
+function CasinoTabs2    ({baseColor, onData }) {
 
   const [key, setKey] = useState('home');
   
@@ -25,33 +25,30 @@ function CasinoTabs2    ({baseColor, onTab1Click, onTab2Click, onTab3Click, onTa
   
                 case "1":  
                     baseColor = 'green';
-                    onTab1Click();
                     break;  //optional  
       
                 case "2":  
                     baseColor = 'red'; 
-                    onTab2Click();
                     break;  //optional 
                   
                 case "3":  
                     baseColor = 'yellow';  
-                    onTab3Click();
                     break;  //optional    
       
                 case "4":  
                     baseColor = 'blue';  
-                    onTab4Click();
                     break;  //optional  
       
                 case "5":  
                     baseColor = 'purple';  
-                    onTab5Click();
                     break;  //optional    
       
                 default:  
                     //when no case is matched, this block will be executed;  
                     break;  //optional  
                 } 
+
+                onData(baseColor);
 
                 // Below needs to be replaced by sending a color to each component
 

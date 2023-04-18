@@ -3,7 +3,6 @@ import { useState, useEffect } from 'react';
 import './App.css';
 import LoginUserButton from './components/LoginUser/LoginUser';
 import SignupUserButton from './components/SignupUser/SignupUser';
-import CasinoTabs from './components/Tabs/CasinoTabs';
 
 import CasinoTabs2 from './components/Tabs2/CasinoTabs';
 
@@ -36,6 +35,8 @@ function App() {
           // alert(err.message);
       });
 
+      // Set the Text Values
+
   });
 
   const [bannerOptions, setBannerOptions] = useState([]);
@@ -49,8 +50,10 @@ function App() {
   // Only the Tabstrip can Change the State
   const [baseColor, setSelectedColor] = useState('green');
 
-  function setColor(color) {
-    setSelectedColor(color); 
+  function setColor(colorFromChild)
+  {
+    setSelectedColor(colorFromChild);
+    alert(colorFromChild);
   }
 
   return (
@@ -83,12 +86,9 @@ function App() {
 
   <wrapper2>
 
-    <CasinoTabs2 baseColor={"Green"} 
-                 onTab1Click={()=> setColor("green")}
-                 onTab2Click={()=> setColor("red")}
-                 onTab3Click={()=> setColor("yellow")}
-                 onTab4Click={()=> setColor("blue")}
-                 onTab5Click={()=> setColor("purple")}
+    <CasinoTabs2 
+                 onData={setColor}
+                 baseColor={"Green"} 
                   />
 
     <footer id="footer" class="d-flex flex-column">
