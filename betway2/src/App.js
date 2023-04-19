@@ -31,7 +31,6 @@ function App() {
       })
       .catch((err) => {
           console.log(err.message);
-          // alert(err.message);
       });
 
       // Set the Text Values
@@ -43,10 +42,6 @@ function App() {
   const [signupText, setsignupText] = useState('');
   const [footerLines, setfooterLines] = useState([]);
 
-  // console.log (footerLines[0]);
-
-
-  // STATE FOR THE CURRENT COLOR
   // Current color is set to other components as Props
   // Only the Tabstrip can Change the State
   const [baseColor, setSelectedColor] = useState('green');

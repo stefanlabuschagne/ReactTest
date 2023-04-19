@@ -51,21 +51,11 @@ function CasinoTabs2    ({baseColor, onData,TabOptions }) {
          } }
       
     >
-      <Tab eventKey={1} id="T1" title={TabOptions[0]} tabClassName="customTabFormatting customTab1" >
-       
-      </Tab>
-      <Tab eventKey={2} id="T2" title={TabOptions[1]} tabClassName="customTabFormatting customTab2"    >
-        
-      </Tab>
-      <Tab eventKey={3} id="T3" title={TabOptions[2]} tabClassName="customTabFormatting customTab3">
-        
-      </Tab>
-      <Tab eventKey={4} id="T4" title={TabOptions[3]} tabClassName="customTabFormatting customTab4" >
-        
-      </Tab>
-      <Tab eventKey={5} id="T5" title={TabOptions[4]} tabClassName="customTabFormatting customTab5">
-        
-      </Tab>
+      <Tab eventKey={1} id="T1" title={TabOptions[0]} tabClassName="customTabFormatting customTab1"></Tab>
+      <Tab eventKey={2} id="T2" title={TabOptions[1]} tabClassName="customTabFormatting customTab2"></Tab>
+      <Tab eventKey={3} id="T3" title={TabOptions[2]} tabClassName="customTabFormatting customTab3"></Tab>
+      <Tab eventKey={4} id="T4" title={TabOptions[3]} tabClassName="customTabFormatting customTab4" ></Tab>
+      <Tab eventKey={5} id="T5" title={TabOptions[4]} tabClassName="customTabFormatting customTab5"></Tab>
     </Tabs>
 
   );

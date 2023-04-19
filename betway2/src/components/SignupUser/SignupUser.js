@@ -12,8 +12,14 @@ export default function SignupUserButton({baseColor,buttonText}) {
   {setShow(true)};
 
   return (<div>
-            <input id="signupbutton" type="Button" Class="signupButton" onClick={handleShow} value={buttonText}/>
-        </div>  
+            <input 
+              id="signupbutton" 
+              type="Button" 
+              Class="signupButton" 
+              onClick={handleShow} 
+              value={buttonText}
+            />
+          </div>  
   );
 }
 

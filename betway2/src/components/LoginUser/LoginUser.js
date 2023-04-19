@@ -16,7 +16,6 @@ export default function LoginUserButton({baseColor, buttonText}) {
 
   useEffect(() => {
 
-    // TODO
     // Code to load the Display-Text for the CTA from the API
     // This needs CORS to be configured!
     // https://bbackendapi.azurewebsites.net/api/betway/settings/ctalogin
@@ -39,22 +38,16 @@ export default function LoginUserButton({baseColor, buttonText}) {
           console.log(err.message);
       });
 
-      // setTimeout(applyColors(baseColor), 100000);
-
   },[]);
 
   useLayoutEffect(() => {
 
-    // setTimeout(applyColors(baseColor), 5000);
-
 });
 
-  const [show, setShow] = useState(false);  // https://react.dev/reference/react/useState
-
+  const [show, setShow] = useState(false);
   const[username, setUsername] = useState("");
   const[password, setPassword] = useState("");
   const[realusername, setRealusername] = useState ("");
-
   const[successfulllogin, setSuccessfulllogin] = useState(false);
   const[feedbackMessage, setFeedbackMessage] = useState("");
 
@@ -219,17 +212,21 @@ export default function LoginUserButton({baseColor, buttonText}) {
         </Modal.Header>
         
         <Modal.Body>
-
-        <div class="d-flex col-12 justify-content-center" >
-              <h1>{`${WelcomeUserText[1]}, ${realusername}`}</h1>
-        </div>
-
+          <div class="d-flex col-12 justify-content-center" >
+                <h1>{`${WelcomeUserText[1]}, ${realusername}`}</h1>
+          </div>
         </Modal.Body>
+
         <Modal.Footer>
           <div class="d-flex col-12 justify-content-center ">
-                <Button className="closeButton" id= "closeButton2" variant="success"  onClick={handleCloseAll} >{WelcomeUserText[2]}</Button>
+                <Button className="closeButton" 
+                        id= "closeButton2" 
+                        variant="success"  
+                        onClick={handleCloseAll} >{WelcomeUserText[2]}
+                </Button>
           </div>        
         </Modal.Footer>
+        
       </Modal>
 
     </>
