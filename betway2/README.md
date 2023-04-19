@@ -1,4 +1,4 @@
-#This is the React source code for the technical interview.
+## This is the React source code for the technical interview.
 
 It makes use of an backend API, to get information for the UI, as well as the submitting users credentials and authenticating the user:
 
