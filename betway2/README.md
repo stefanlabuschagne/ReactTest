@@ -1,3 +1,26 @@
+# This is the React source code for the technical interview.
+
+It makes use of an backend API, to get information for the UI, 
+as well as the submitting users credentials and authenticating the user:
+
+API links are as follow:
+
+  https://bbackendapi.azurewebsites.net/api/betway/settings/ctalogin
+
+  https://bbackendapi.azurewebsites.net/api/betway/settings/app
+
+  https://bbackendapi.azurewebsites.net/api/betway/login
+
+You would need to set up CORS for these links
+
+A valid login user is:
+
+  username: harper.lee@gmail.com
+
+  Password: Syntax-10
+
+The source code is available in a separate github repo
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
