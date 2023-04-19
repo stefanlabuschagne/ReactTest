@@ -10,10 +10,6 @@ function App() {
 
   useEffect(() => {
 
-    // alert("UseEffect");
-
-    // TODO
-    // Code to load the Display-Text for the App from the API
     // This needs CORS to be configured!
     // https://bbackendapi.azurewebsites.net/api/betway/settings/ctalogin
     // https://bbackendapi.azurewebsites.net/api/betway/settings/ctalogin
@@ -28,7 +24,7 @@ function App() {
       .then((res) => res.json())
       .then((data) => {
         setBannerOptions(data.bannerOptions);
-        setLoginText(data.loginText);
+        setLoginText(data.login);
         setSignUp(data.signUp);
         setfooterLines(data.footerLines);
       })
@@ -45,6 +41,8 @@ function App() {
   const [loginText, setLoginText] = useState('');
   const [signUp, setSignUp] = useState('');
   const [footerLines, setfooterLines] = useState([]);
+
+  console.log (footerLines[0]);
 
 
   // STATE FOR THE CURRENT COLOR
@@ -80,11 +78,11 @@ function App() {
       <span class="d-flex justify-content-end spanspacing">
 
           <div class="p-2">
-            <LoginUserButton baseColor={baseColor} />
+            <LoginUserButton baseColor={baseColor} buttonText={loginText} />
           </div>
 
           <div class="p-2">
-            <SignupUserButton baseColor={baseColor} />
+            <SignupUserButton baseColor={baseColor} buttonText={signUp} />
           </div>
 
       </span>
@@ -98,12 +96,13 @@ function App() {
     <CasinoTabs2 
                  onData={setColor}
                  baseColor={"Green"} 
+                 TabOptions={bannerOptions}
                   />
 
     <footer id="footer" class="d-flex flex-column">
-      <div class="FooterItem1">SPORTS NEW CUSTOMER OFFER</div>
-      <div class="FooterItem2"><div class="FooterItem2Content" >Get up to $10 in Free Bets</div></div>
-      <div class="FooterItem3"><button type="button" id="joiningbutton" class="FooterItem3Button btn btn-success">Join Now</button></div>
+      <div class="FooterItem1">{footerLines[0]}</div>
+      <div class="FooterItem2"><div class="FooterItem2Content" >{footerLines[1]}</div></div>
+      <div class="FooterItem3"><button type="button" id="joiningbutton" class="FooterItem3Button btn btn-success">{footerLines[2]}</button></div>
     </footer>
 
   </wrapper2>

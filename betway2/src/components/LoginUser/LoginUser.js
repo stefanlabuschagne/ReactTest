@@ -7,11 +7,12 @@ import { flushSync } from 'react-dom';
 
 import './LoginUser.css';
 
-export default function LoginUserButton({baseColor}) {
+export default function LoginUserButton({baseColor, buttonText}) {
 
   const[headerText, setHeaderText] = useState([]);
   const[formFields, setFormFields] = useState([]);
   const[FooterText, setFooterText] = useState([]);
+  const[WelcomeUserText, setWelcomeUserText] = useState([]);
 
   useEffect(() => {
 
@@ -32,10 +33,10 @@ export default function LoginUserButton({baseColor}) {
         setHeaderText(data.headerText);
         setFormFields(data.formFields);
         setFooterText(data.footerText);
+        setWelcomeUserText(data.welcomeUser);
       })
       .catch((err) => {
           console.log(err.message);
-          // alert(err.message);
       });
 
       // setTimeout(applyColors(baseColor), 100000);
@@ -87,8 +88,7 @@ export default function LoginUserButton({baseColor}) {
 
   const handleShow = () => 
     {
-      setShow(true)
-    
+      setShow(true);
     };
 
   const handleLoginUser = (e) => 
@@ -150,15 +150,15 @@ export default function LoginUserButton({baseColor}) {
     <>
 
       <Button id="loginbutton" variant="success" onClick={handleShow} >
-        Login
+        {buttonText}
       </Button>
 
       <Modal show={show} onHide={handleClose} centered >
         <Modal.Header closeButton >
 
             <div class="col-12" >
-                <h3 class="modal-title w-100 text-center">Login</h3>
-                <h6 class="modal-title w-100 text-center">New customer?&nbsp;<a id="loginanchorlink" href='#'>Register here</a></h6>
+                <h3 class="modal-title w-100 text-center">{headerText[0]}</h3>
+                <h6 class="modal-title w-100 text-center">{headerText[1]}&nbsp;<a id="loginanchorlink" href='#'>{headerText[2]}</a></h6>
             </div>
 
         </Modal.Header>
@@ -168,7 +168,7 @@ export default function LoginUserButton({baseColor}) {
           <Form onSubmit={handleLoginUser} >
 
             <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-              <Form.Label>Username</Form.Label>
+              <Form.Label>{formFields[0]}</Form.Label>
               <Form.Control
                 required
                 type="email"
@@ -181,7 +181,7 @@ export default function LoginUserButton({baseColor}) {
             </Form.Group>
 
             <Form.Group className="mb-3" controlId="exampleForm.ControlInput2">
-              <Form.Label>Password</Form.Label>
+              <Form.Label>{formFields[1]}</Form.Label>
               <Form.Control
                 required
                 type="password"
@@ -194,11 +194,11 @@ export default function LoginUserButton({baseColor}) {
      
             </Form.Group>
                 <div class="d-flex justify-content-center">
-                    <div><Button disabled={successfulllogin}  id="loginsubmitbutton" type="submit" className="loginButton" variant="success"  >Login</Button></div>
+                    <div><Button disabled={successfulllogin}  id="loginsubmitbutton" type="submit" className="loginButton" variant="success"  >{FooterText[0]}</Button></div>
                 </div>
                 <div class="d-flex justify-content-center">
                     <div>
-                        <a id="loginanchorforgot" href="#">Forgot Username/Password</a>
+                        <a id="loginanchorforgot" href="#">{formFields[1]}</a>
                     </div>
                 </div>          
             </Form>
@@ -214,20 +214,20 @@ export default function LoginUserButton({baseColor}) {
         
         <Modal.Header>
           <div class="col-12" >
-              <h3 class="modal-title w-100 text-center">Success</h3>
+              <h3 class="modal-title w-100 text-center">{WelcomeUserText[0]}</h3>
           </div>       
         </Modal.Header>
         
         <Modal.Body>
 
         <div class="d-flex col-12 justify-content-center" >
-              <h1>{`Welcome, ${realusername}`}</h1>
+              <h1>{`${WelcomeUserText[1]}, ${realusername}`}</h1>
         </div>
 
         </Modal.Body>
         <Modal.Footer>
           <div class="d-flex col-12 justify-content-center ">
-                <Button className="closeButton" id= "closeButton2" variant="success"  onClick={handleCloseAll} >Continue</Button>
+                <Button className="closeButton" id= "closeButton2" variant="success"  onClick={handleCloseAll} >{WelcomeUserText[2]}</Button>
           </div>        
         </Modal.Footer>
       </Modal>
