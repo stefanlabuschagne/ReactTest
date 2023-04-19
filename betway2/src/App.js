@@ -5,6 +5,7 @@ import LoginUserButton from './components/LoginUser/LoginUser';
 import SignupUserButton from './components/SignupUser/SignupUser';
 
 import CasinoTabs2 from './components/Tabs2/CasinoTabs';
+import CasinoFooter from './components/Footer/CasinoFooter';
 
 function App() {
 
@@ -25,7 +26,7 @@ function App() {
       .then((data) => {
         setBannerOptions(data.bannerOptions);
         setLoginText(data.login);
-        setSignUp(data.signUp);
+        setsignupText(data.signUp);
         setfooterLines(data.footerLines);
       })
       .catch((err) => {
@@ -39,10 +40,10 @@ function App() {
 
   const [bannerOptions, setBannerOptions] = useState([]);
   const [loginText, setLoginText] = useState('');
-  const [signUp, setSignUp] = useState('');
+  const [signupText, setsignupText] = useState('');
   const [footerLines, setfooterLines] = useState([]);
 
-  console.log (footerLines[0]);
+  // console.log (footerLines[0]);
 
 
   // STATE FOR THE CURRENT COLOR
@@ -67,29 +68,29 @@ function App() {
 
 <wrapper class="d-flex flex-column">
 
-<div class="topcontainer">
+  <div class="topcontainer">
 
-  <div class="d-flex">
+    <div class="d-flex">
 
-      <span class="justify-content-start spanspacing">  
-        <div class="p-2"><img src="https://cdn.betway.co.za/images/Shared/sprite/site/Betway_White.png" height={38} class="rounded" alt="Betway"/></div>
-      </span>
+        <span class="justify-content-start spanspacing">  
+          <div class="p-2"><img src="https://cdn.betway.co.za/images/Shared/sprite/site/Betway_White.png" height={38} class="rounded" alt="Betway"/></div>
+        </span>
 
-      <span class="d-flex justify-content-end spanspacing">
+        <span class="d-flex justify-content-end spanspacing">
 
-          <div class="p-2">
-            <LoginUserButton baseColor={baseColor} buttonText={loginText} />
-          </div>
+            <div class="p-2">
+              <LoginUserButton baseColor={baseColor} buttonText={loginText} />
+            </div>
 
-          <div class="p-2">
-            <SignupUserButton baseColor={baseColor} buttonText={signUp} />
-          </div>
+            <div class="p-2">
+              <SignupUserButton baseColor={baseColor} buttonText={signupText} />
+            </div>
 
-      </span>
+        </span>
+
+    </div>
 
   </div>
-
-</div>
 
   <wrapper2>
 
@@ -97,19 +98,16 @@ function App() {
                  onData={setColor}
                  baseColor={"Green"} 
                  TabOptions={bannerOptions}
-                  />
+                />
 
-    <footer id="footer" class="d-flex flex-column">
-      <div class="FooterItem1">{footerLines[0]}</div>
-      <div class="FooterItem2"><div class="FooterItem2Content" >{footerLines[1]}</div></div>
-      <div class="FooterItem3"><button type="button" id="joiningbutton" class="FooterItem3Button btn btn-success">{footerLines[2]}</button></div>
-    </footer>
+      <CasinoFooter FooterText={footerLines} />
 
   </wrapper2>
 
 </wrapper>
 
   );
+  
 }
 
 export default App;
