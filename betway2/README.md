@@ -19,7 +19,8 @@ username: harper.lee@gmail.com
 
 Password: Syntax-10
 
-The source code is available in a separate github repo
+The BACKEND source code is available in a separate github repo
+https://github.com/stefanlabuschagne/BetwayBackend
 
 # Getting Started with Create React App
 
